@@ -1,27 +1,72 @@
 # Pomodoro
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
+> **Warning**
+> This app is a work in progress.
 
-## Development server
+# About this project
+Welcome to our open-source Pomodoro app! This project is licensed under the MIT License and is developed using Angular 16.2.2 with an ESLint configuration.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Features
+Our Pomodoro app comes with a variety of features to help users manage their time effectively, including:
 
-## Code scaffolding
+*Nothing for the moment*
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Roadmap
 
-## Build
+We're continuously improving our Pomodoro app to provide you with the best time management experience. Here's what we're working on:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Priority | Feature
+- **Pomodoro Timer:** Set work intervals and breaks to enhance productivity.
+- **Customizable Settings:** Personalize timer duration, notification sounds, and more.
+- **Task Management:** Organize tasks and track progress within the app.
+- **Intuitive Interface:** User-friendly design for a seamless experience.
+- **Data Visualization:** Analyze productivity patterns with insightful charts and graphs.
 
-## Running unit tests
+Non-priority | Feature
+- **Integration with Task Management Tools:** Sync tasks with popular apps like Trello, Asana, and Todoist.
+- **Collaboration Features:** Share timers and tasks with team members for enhanced teamwork.
+- **Mobile Apps:** Access the Pomodoro app on your iOS and Android devices.
+- **Advanced Analytics:** Dive deeper into productivity data with advanced reporting tools.
+- **Integration with Calendar Apps:** Plan Pomodoro sessions around your schedule seamlessly.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+# Known issues
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Running locally
+To run the Pomodoro app locally on your machine, follow these steps:
 
-## Further help
+1. Clone the repository: git clone `https://github.com/Flasssh/pomodoro.git`
+2. Navigate to the project directory: cd pomodoro
+3. Install dependencies: npm install
+4. Start the development server: ng serve
+5. Open your browser and visit http://localhost:4200 to access the app.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Contributing
+
+Feel free to contribute to our Pomodoro app and make time management a breeze for users worldwide! If you have any questions or suggestions, please open an issue or reach out to us. Happy Pomodoro-ing! 🍅🕒
+
+
+## Using Semantic Commit Messages for Contributions
+We encourage contributors to follow the [semantic commit message convention](https://www.conventionalcommits.org/en/v1.0.0/) when making changes to the project. Semantic commits help maintain a clear and organized commit history, making it easier to track changes and understand their impact.
+
+When contributing to this project, please adhere to the following guidelines for commit messages:
+
+- **feat:** for new features or significant changes.
+- **fix:** for bug fixes.
+- **docs:** for documentation updates.
+- **style:** for code style changes (e.g., formatting).
+- **refactor:** for code refactoring without adding new features or fixing bugs.
+- **test:** for adding or updating tests.
+- **chore:** for routine tasks, maintenance, or tooling changes.
+
+Example commit messages:
+
+- `feat`: add new task management feature
+- `fix`: resolve issue with timer not resetting
+- `docs`: update README with installation instructions
+
+Using semantic commit messages ensures that our project's version history is meaningful and understandable. Thank you for your contributions and helping us maintain a clean commit history!
+
+# License
+
+Licensed under the [MIT License](LICENSE).
