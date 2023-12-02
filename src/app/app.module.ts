@@ -7,11 +7,13 @@ import { HeaderComponent } from './components/header/header.component';
 import {NgOptimizedImage} from "@angular/common";
 import {NgIconsModule} from "@ng-icons/core";
 import {heroChartBar, heroCog} from "@ng-icons/heroicons/outline";
+import { ChronoComponent } from './components/chrono/chrono.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ChronoComponent
   ],
     imports: [
         BrowserModule,
