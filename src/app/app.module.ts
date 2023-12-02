@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import {NgOptimizedImage} from "@angular/common";
+import {NgIconsModule} from "@ng-icons/core";
+import {heroChartBar, heroCog} from "@ng-icons/heroicons/outline";
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import {NgOptimizedImage} from "@angular/common";
     imports: [
         BrowserModule,
         AppRoutingModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        NgIconsModule.withIcons({ heroCog, heroChartBar }),
     ],
   providers: [],
   bootstrap: [AppComponent]
