@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Task} from "../../models/Task";
 import {FormBuilder, Validators} from "@angular/forms";
+import {TasksService} from "../../../../services/tasks.service";
 
 @Component({
     selector: 'app-task-modal',
@@ -21,6 +22,7 @@ export class TaskModalComponent implements OnInit {
 
     constructor(
         private readonly formBuilder: FormBuilder,
+        private readonly tasksService: TasksService
     ) {
     }
 
@@ -71,6 +73,8 @@ export class TaskModalComponent implements OnInit {
                 iteration: this.iteration.value,
                 completed: this.task.completed,
             };
+
+            this.tasksService.updateTask$(this.task);
         }
     }
 
