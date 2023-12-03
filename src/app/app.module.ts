@@ -19,6 +19,7 @@ import {TasksComponent} from './components/tasks/tasks.component';
 import {CreateTaskComponent} from './components/tasks/components/create-task/create-task.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TaskModalComponent} from './components/tasks/components/task-modal/task-modal.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import {TaskModalComponent} from './components/tasks/components/task-modal/task-
         ChronoComponent,
         TasksComponent,
         CreateTaskComponent,
-        TaskModalComponent
+        TaskModalComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule,

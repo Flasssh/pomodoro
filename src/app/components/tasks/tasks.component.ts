@@ -22,8 +22,6 @@ export class TasksComponent implements OnInit {
 
     ngOnInit(): void {
         this.tasks$ = this.tasksService.getTasks$();
-
-        this.openTask(1);
     }
 
     createTask($event: Task) {
