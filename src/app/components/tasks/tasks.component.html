@@ -7,7 +7,7 @@
             <ng-container *ngIf="tasks.length > 0; else noTasks">
                 <div *ngFor="let task of tasks"
                      class="py-2 rounded-md bg-gray-50 flex justify-between">
-                    <div class="flex justify-between w-full">
+                    <div class="flex justify-between w-full select-none">
                         <span class="pl-2 font-medium text-md"> {{task.title}} </span>
                         <span class="pr-2 font-medium text-md"> 0/2 </span>
                     </div>
@@ -28,7 +28,7 @@
     <hr class="my-6 border-2 border-gray-100"/>
 
     <div (click)="createTask()"
-         class="text-center mt-2 border-2 border-gray-100 py-4 font-medium text-lg cursor-pointer border-dashed rounded-md">
+         class="text-center mt-2 border-2 border-gray-100 py-4 font-medium text-lg cursor-pointer border-dashed rounded-md select-none">
         Create a new task
     </div>
 </div>
