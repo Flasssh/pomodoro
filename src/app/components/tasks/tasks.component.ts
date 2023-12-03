@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TasksService} from "../../services/tasks.service";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {Task} from "./models/Task";
 
 @Component({
@@ -11,6 +11,7 @@ import {Task} from "./models/Task";
 export class TasksComponent implements OnInit {
 
     creatingTask = false;
+    filterCompleted = false;
 
     currentTaskOpen$?: Observable<Task | undefined>;
     tasks$!: Observable<Task[]>
@@ -55,5 +56,20 @@ export class TasksComponent implements OnInit {
 
     resetIterationTask($event: number) {
         this.tasksService.resetIterationTask$($event);
+    }
+
+    filterCompletedTask() {
+        if (this.filterCompleted) {
+            this.filterCompleted = false;
+            this.tasks$ = this.tasksService.getTasks$();
+        } else {
+            this.filterCompleted = true;
+            this.tasks$ = this.tasksService.getTasks$()
+                .pipe(
+                    map(tasks => tasks.filter(task => !task.completed))
+                );
+        }
+
+        this.tasks$.subscribe();
     }
 }

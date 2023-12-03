@@ -3,6 +3,7 @@ import {Observable, Subscription} from "rxjs";
 import {DefaultTimer} from "../../utils/default-timer";
 import {TimerState} from "../../utils/timer-state";
 import {DefaultSettings} from "../../utils/default-settings";
+import {TimerService} from "../../services/timer.service";
 
 @Component({
     selector: 'app-timer',
@@ -20,6 +21,11 @@ export class TimerComponent implements OnInit {
 
     countInterval = 1;
 
+    constructor(
+        private readonly timerService: TimerService,
+    ) {
+    }
+
     ngOnInit(): void {
         this.timer$ = new Observable<number>(observer => {
             let count = this.time;
@@ -31,6 +37,7 @@ export class TimerComponent implements OnInit {
                     switch (this.timerState) {
                         case TimerState.POMODORO:
                             this.countInterval++;
+                            this.timerService.addOneDoneToCurrentTask();
 
                             if (this.countInterval === DefaultSettings.INTERVAL) {
                                 this.countInterval = 0;

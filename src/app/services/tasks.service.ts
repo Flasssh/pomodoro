@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {Task} from "../components/tasks/models/Task";
 import {Observable, of} from "rxjs";
 
@@ -20,6 +20,13 @@ export class TasksService {
         });
     }
 
+    findTaskInLocalStorage(): void {
+        const tasks = localStorage.getItem('tasks');
+        if (tasks) {
+            this.tasks = JSON.parse(tasks);
+        }
+    }
+
     getTasks$(): Observable<Task[]> {
         return of(this.tasks);
     }
@@ -32,27 +39,41 @@ export class TasksService {
         task.id = this.tasks.length + 1;
 
         this.tasks.push(task);
+
+        this.saveTaskToLocalStorage();
         return task;
     }
 
     updateTask$(task: Task): Task {
         const index = this.tasks.findIndex(t => t.id === task.id);
         this.tasks[index] = task;
+
+        this.saveTaskToLocalStorage();
         return task;
     }
 
     deleteTask$(taskId: number): void {
         const index = this.tasks.findIndex(t => t.id === taskId);
         this.tasks.splice(index, 1);
+
+        this.saveTaskToLocalStorage();
     }
 
     completeTask$($event: number) {
         const index = this.tasks.findIndex(t => t.id === $event);
         this.tasks[index].completed = true;
+
+        this.saveTaskToLocalStorage();
     }
 
     resetIterationTask$($event: number) {
         const index = this.tasks.findIndex(t => t.id === $event);
         this.tasks[index].completed = false;
+
+        this.saveTaskToLocalStorage();
+    }
+
+    saveTaskToLocalStorage() {
+        localStorage.setItem('tasks', JSON.stringify(this.tasks));
     }
 }

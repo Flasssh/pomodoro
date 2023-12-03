@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -10,7 +10,7 @@ import {
     heroChartBar,
     heroChevronDown,
     heroChevronUp,
-    heroCog,
+    heroCog, heroFunnel,
     heroPencil,
     heroXMark
 } from "@ng-icons/heroicons/outline";
@@ -19,8 +19,9 @@ import {TasksComponent} from './components/tasks/tasks.component';
 import {CreateTaskComponent} from './components/tasks/components/create-task/create-task.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TaskModalComponent} from './components/tasks/components/task-modal/task-modal.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { ShowTimePipe } from './pipe/show-time.pipe';
+import {FooterComponent} from './components/footer/footer.component';
+import {ShowTimePipe} from './pipe/show-time.pipe';
+import {TasksService} from "./services/tasks.service";
 
 @NgModule({
     declarations: [
@@ -37,11 +38,18 @@ import { ShowTimePipe } from './pipe/show-time.pipe';
         BrowserModule,
         AppRoutingModule,
         NgOptimizedImage,
-        NgIconsModule.withIcons({heroCog, heroChartBar, heroXMark, heroChevronUp, heroChevronDown, heroPencil}),
+        NgIconsModule.withIcons({heroCog, heroChartBar, heroXMark, heroChevronUp, heroChevronDown, heroPencil, heroFunnel}),
         FormsModule,
         ReactiveFormsModule,
     ],
-    providers: [],
+    providers: [
+        {
+            provide: APP_INITIALIZER,
+            useFactory: (taskService: TasksService) => () => taskService.findTaskInLocalStorage(),
+            deps: [TasksService],
+            multi: true
+        }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

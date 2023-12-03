@@ -1,6 +1,11 @@
 <div class="rounded p-4 max-w-2xl mx-auto mt-8">
-    <div class="text-lg font-medium w-full border-b-2 border-gray-100">
-        Tasks
+    <div class="font-medium w-full border-b-2 border-gray-100 flex flex-row justify-between">
+        <div class="text-lg">
+            Tasks
+        </div>
+        <div class="text-md items-center flex cursor-pointer" (click)="filterCompletedTask()">
+            <ng-icon name="heroFunnel"></ng-icon>
+        </div>
     </div>
     <div class="gap-2 flex flex-col mt-4">
         <ng-container *ngIf="(tasks$ | async) as tasks">
