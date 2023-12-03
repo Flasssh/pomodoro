@@ -36,9 +36,9 @@
             Cancel
         </button>
         <button class="px-4 py-2 bg-gray-800 text-white rounded-md shadow-sm hover:shadow-md hover:bg-gray-900 transition duration-200 ease-in-out disabled:opacity-50"
-                [disabled]="!taskForm.valid">
+                [disabled]="!taskForm.valid"
+                (click)="onSubmit()">
             Create
         </button>
-        (click)="onSubmit()"
     </div>
 </div>
