@@ -5,7 +5,7 @@
             <button (click)="changeTimerState('pomodoro')"
                     [disabled]="timerStarted"
                     [ngClass]="{'': timerState === 'pomodoro'}"
-                    class="bg-white rounded shadow px-3 py-1 hover:shadow-md disabled:opacity-75">
+                    class="bg-white rounded shadow px-3 py-1 hover:shadow-md disabled:opacity-75 h-full">
                 Pomodoro
             </button>
         </div>
@@ -13,7 +13,7 @@
              [ngClass]="{'bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500': timerState === 'short-break'}">
             <button (click)="changeTimerState('short-break')"
                     [disabled]="timerStarted"
-                    class="bg-white rounded shadow px-3 py-1 hover:shadow-md disabled:opacity-75">
+                    class="bg-white rounded shadow px-3 py-1 hover:shadow-md disabled:opacity-75 h-full">
                 Short Break
             </button>
         </div>
@@ -21,7 +21,7 @@
              [ngClass]="{'bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500': timerState === 'long-break'}">
             <button (click)="changeTimerState('long-break')"
                     [disabled]="timerStarted"
-                    class="bg-white rounded shadow px-3 py-1 hover:shadow-md disabled:opacity-75">
+                    class="bg-white rounded shadow px-3 py-1 hover:shadow-md disabled:opacity-75 h-full">
                 Long Break
             </button>
         </div>
