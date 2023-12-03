@@ -38,6 +38,7 @@ export class CreateTaskComponent implements OnInit {
                 id: 0,
                 title: this.title.value,
                 notes: this.notes.value,
+                done: 0,
                 iteration: this.iteration.value,
                 completed: false,
             };

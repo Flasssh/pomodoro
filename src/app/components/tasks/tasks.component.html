@@ -6,10 +6,11 @@
         <ng-container *ngIf="(tasks$ | async) as tasks">
             <ng-container *ngIf="tasks.length > 0; else noTasks">
                 <div *ngFor="let task of tasks"
-                     class="py-2 rounded-md bg-gray-50 flex justify-between">
+                     (click)="openTask(task.id)"
+                     class="py-2 rounded-md bg-gray-50 flex justify-between cursor-pointer">
                     <div class="flex justify-between w-full select-none">
                         <span class="pl-2 font-medium text-md"> {{task.title}} </span>
-                        <span class="pr-2 font-medium text-md"> 0/{{task.iteration}} </span>
+                        <span class="pr-2 font-medium text-md"> {{task.done}}/{{task.iteration}} </span>
                     </div>
                     <div (click)="deleteTask(task.id)"
                          class="px-2 text-md border-l-2 border-gray-100 font-medium text-md cursor-pointer flex items-center">
@@ -42,3 +43,11 @@
         </ng-template>
     </div>
 </div>
+
+<ng-container *ngIf="(currentTaskOpen$ | async) as currentTask">
+    <app-task-modal
+            [task]="currentTask"
+            (closeModal)="closeModal()"
+            (completeTask)="completeTask($event)"
+            (resetIterationTask)="resetIterationTask($event)"></app-task-modal>
+</ng-container>

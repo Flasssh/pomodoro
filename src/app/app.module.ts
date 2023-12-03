@@ -6,11 +6,19 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from './components/header/header.component';
 import {NgOptimizedImage} from "@angular/common";
 import {NgIconsModule} from "@ng-icons/core";
-import {heroChartBar, heroChevronDown, heroChevronUp, heroCog, heroXMark} from "@ng-icons/heroicons/outline";
+import {
+    heroChartBar,
+    heroChevronDown,
+    heroChevronUp,
+    heroCog,
+    heroPencil,
+    heroXMark
+} from "@ng-icons/heroicons/outline";
 import {ChronoComponent} from './components/chrono/chrono.component';
 import {TasksComponent} from './components/tasks/tasks.component';
-import { CreateTaskComponent } from './components/tasks/components/create-task/create-task.component';
+import {CreateTaskComponent} from './components/tasks/components/create-task/create-task.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {TaskModalComponent} from './components/tasks/components/task-modal/task-modal.component';
 
 @NgModule({
     declarations: [
@@ -18,13 +26,14 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         HeaderComponent,
         ChronoComponent,
         TasksComponent,
-        CreateTaskComponent
+        CreateTaskComponent,
+        TaskModalComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         NgOptimizedImage,
-        NgIconsModule.withIcons({heroCog, heroChartBar, heroXMark, heroChevronUp, heroChevronDown}),
+        NgIconsModule.withIcons({heroCog, heroChartBar, heroXMark, heroChevronUp, heroChevronDown, heroPencil}),
         FormsModule,
         ReactiveFormsModule,
     ],

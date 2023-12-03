@@ -12,6 +12,7 @@ export class TasksComponent implements OnInit {
 
     creatingTask = false;
 
+    currentTaskOpen$?: Observable<Task | undefined>;
     tasks$!: Observable<Task[]>
 
     constructor(
@@ -21,6 +22,8 @@ export class TasksComponent implements OnInit {
 
     ngOnInit(): void {
         this.tasks$ = this.tasksService.getTasks$();
+
+        this.openTask(1);
     }
 
     createTask($event: Task) {
@@ -38,5 +41,21 @@ export class TasksComponent implements OnInit {
 
     startCreatingTask() {
         this.creatingTask = true;
+    }
+
+    openTask(taskId: number) {
+        this.currentTaskOpen$ = this.tasksService.findTask$(taskId);
+    }
+
+    closeModal() {
+        this.currentTaskOpen$ = undefined;
+    }
+
+    completeTask($event: number) {
+        this.tasksService.completeTask$($event);
+    }
+
+    resetIterationTask($event: number) {
+        this.tasksService.resetIterationTask$($event);
     }
 }
