@@ -1,0 +1,23 @@
+<div class="rounded p-4 max-w-2xl mx-auto mt-8">
+    <div class="text-lg font-medium w-full border-b-2 border-gray-100">
+        Tasks
+    </div>
+    <div class="gap-2 flex flex-col mt-4">
+        <div *ngFor="let task of tasks"
+             class="py-2 rounded-md bg-gray-50 flex justify-between">
+            <div class="flex justify-between w-full">
+                <span class="pl-2 font-medium text-md"> {{task.title}} </span>
+                <span class="pr-2 font-medium text-md"> 0/2 </span>
+            </div>
+            <div class="px-2 text-md border-l-2 border-gray-100 font-medium text-md cursor-pointer flex items-center">
+                <ng-icon name="heroXMark"></ng-icon>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-6 border-2 border-gray-100"/>
+
+    <div class="text-center mt-2 border-2 border-gray-100 py-4 font-medium text-lg cursor-pointer border-dashed rounded-md">
+        Create a new task
+    </div>
+</div>
