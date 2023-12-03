@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChronoComponent } from './chrono.component';
+import { TimerComponent } from './timer.component';
 
 describe('ChronoComponent', () => {
-  let component: ChronoComponent;
-  let fixture: ComponentFixture<ChronoComponent>;
+  let component: TimerComponent;
+  let fixture: ComponentFixture<TimerComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ChronoComponent]
+      declarations: [TimerComponent]
     });
-    fixture = TestBed.createComponent(ChronoComponent);
+    fixture = TestBed.createComponent(TimerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

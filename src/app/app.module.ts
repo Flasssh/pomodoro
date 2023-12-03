@@ -14,22 +14,24 @@ import {
     heroPencil,
     heroXMark
 } from "@ng-icons/heroicons/outline";
-import {ChronoComponent} from './components/chrono/chrono.component';
+import {TimerComponent} from './components/timer/timer.component';
 import {TasksComponent} from './components/tasks/tasks.component';
 import {CreateTaskComponent} from './components/tasks/components/create-task/create-task.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TaskModalComponent} from './components/tasks/components/task-modal/task-modal.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ShowTimePipe } from './pipe/show-time.pipe';
 
 @NgModule({
     declarations: [
         AppComponent,
         HeaderComponent,
-        ChronoComponent,
+        TimerComponent,
         TasksComponent,
         CreateTaskComponent,
         TaskModalComponent,
-        FooterComponent
+        FooterComponent,
+        ShowTimePipe
     ],
     imports: [
         BrowserModule,
