@@ -1,14 +1,30 @@
 <div class="rounded p-4 shadow-sm max-w-2xl	mx-auto mt-8 border-2 border-gray-50">
-    <div class="bg-gray-100 rounded gap-4 flex p-3 font-medium justify-center max-w-sm mx-auto">
-        <button (click)="changeTimerState('pomodoro')" [disabled]="timerStarted" class="bg-white rounded shadow px-3 py-1 hover:shadow-md disabled:opacity-75">
-            Pomodoro
-        </button>
-        <button (click)="changeTimerState('short-break')" [disabled]="timerStarted" class="bg-white rounded shadow px-3 py-1 hover:shadow-md disabled:opacity-75">
-            Short Break
-        </button>
-        <button (click)="changeTimerState('long-break')" [disabled]="timerStarted" class="bg-white rounded shadow px-3 py-1 hover:shadow-md disabled:opacity-75">
-            Long Break
-        </button>
+    <div class="bg-gray-100 rounded gap-4 flex p-3 font-medium justify-center max-w-md mx-auto">
+        <div class="rounded-md p-1"
+             [ngClass]="{'bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500': timerState === 'pomodoro'}">
+            <button (click)="changeTimerState('pomodoro')"
+                    [disabled]="timerStarted"
+                    [ngClass]="{'': timerState === 'pomodoro'}"
+                    class="bg-white rounded shadow px-3 py-1 hover:shadow-md disabled:opacity-75">
+                Pomodoro
+            </button>
+        </div>
+        <div class="rounded-md p-1"
+             [ngClass]="{'bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500': timerState === 'short-break'}">
+            <button (click)="changeTimerState('short-break')"
+                    [disabled]="timerStarted"
+                    class="bg-white rounded shadow px-3 py-1 hover:shadow-md disabled:opacity-75">
+                Short Break
+            </button>
+        </div>
+        <div class="rounded-md p-1"
+             [ngClass]="{'bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500': timerState === 'long-break'}">
+            <button (click)="changeTimerState('long-break')"
+                    [disabled]="timerStarted"
+                    class="bg-white rounded shadow px-3 py-1 hover:shadow-md disabled:opacity-75">
+                Long Break
+            </button>
+        </div>
     </div>
     <div class="mt-8 font-medium text-8xl text-center tabular-nums">
         {{time | showTime }}

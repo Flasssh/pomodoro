@@ -21,6 +21,28 @@ export class TimerComponent implements OnInit {
         this.timer$ = new Observable<number>(observer => {
             let count = this.time;
             const interval = setInterval(() => {
+                if (count.valueOf() === 0) {
+                    clearInterval(interval);
+                    this.timerStarted = false;
+
+                    switch (this.timerState) {
+                        case TimerState.POMODORO:
+                            this.timerState = TimerState.SHORT_BREAK;
+                            this.time = DefaultTimer.SHORT_BREAK;
+                            break;
+                        case TimerState.SHORT_BREAK:
+                            this.timerState = TimerState.POMODORO;
+                            this.time = DefaultTimer.POMODORO;
+                            break;
+                        case TimerState.LONG_BREAK:
+                            this.timerState = TimerState.POMODORO;
+                            this.time = DefaultTimer.POMODORO;
+                            break;
+                    }
+
+                    return;
+                }
+
                 observer.next(count--);
             }, 1000);
             return () => {
