@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable, Subscription} from "rxjs";
 import {DefaultTimer} from "../../utils/default-timer";
 import {TimerState} from "../../utils/timer-state";
+import {DefaultSettings} from "../../utils/default-settings";
 
 @Component({
     selector: 'app-timer',
@@ -17,6 +18,8 @@ export class TimerComponent implements OnInit {
     time = DefaultTimer.POMODORO;
     timerStarted = false;
 
+    countInterval = 1;
+
     ngOnInit(): void {
         this.timer$ = new Observable<number>(observer => {
             let count = this.time;
@@ -27,6 +30,15 @@ export class TimerComponent implements OnInit {
 
                     switch (this.timerState) {
                         case TimerState.POMODORO:
+                            this.countInterval++;
+
+                            if (this.countInterval === DefaultSettings.INTERVAL) {
+                                this.countInterval = 0;
+                                this.timerState = TimerState.LONG_BREAK;
+                                this.time = DefaultTimer.LONG_BREAK;
+                                break;
+                            }
+
                             this.timerState = TimerState.SHORT_BREAK;
                             this.time = DefaultTimer.SHORT_BREAK;
                             break;
@@ -38,6 +50,13 @@ export class TimerComponent implements OnInit {
                             this.timerState = TimerState.POMODORO;
                             this.time = DefaultTimer.POMODORO;
                             break;
+                        default:
+                            break;
+                    }
+
+                    // if auto start is enabled, start the timer
+                    if (DefaultSettings.AUTO_START) {
+                        this.startTimer();
                     }
 
                     return;
