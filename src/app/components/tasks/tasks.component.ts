@@ -10,6 +10,8 @@ import {Task} from "./models/Task";
 })
 export class TasksComponent implements OnInit {
 
+    creatingTask = false;
+
     tasks$!: Observable<Task[]>
 
     constructor(
@@ -21,17 +23,20 @@ export class TasksComponent implements OnInit {
         this.tasks$ = this.tasksService.getTasks$();
     }
 
-    createTask() {
-        const task: Task = {
-            id: 0,
-            title: 'New Task',
-            completed: false,
-        };
-
-        this.tasksService.createTask$(task);
+    createTask($event: Task) {
+        this.tasksService.createTask$($event);
+        this.creatingTask = false;
     }
 
     deleteTask(id: number) {
         this.tasksService.deleteTask$(id);
+    }
+
+    cancelCreatingTask() {
+        this.creatingTask = false;
+    }
+
+    startCreatingTask() {
+        this.creatingTask = true;
     }
 }
