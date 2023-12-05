@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Settings} from "../shared/models/Settings";
+import {Settings, SettingsTimer} from "../shared/models/Settings";
 import {DefaultSettings} from "../utils/default-settings";
 import {DefaultTimer} from "../utils/default-timer";
 
@@ -24,6 +24,10 @@ export class SettingsService {
 
     getSettings(): Settings {
         return this.settings;
+    }
+
+    getTimerSettings(): SettingsTimer {
+        return this.settings.timer;
     }
 
     onInit(): void {

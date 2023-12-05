@@ -4,6 +4,7 @@ import {DefaultTimer} from "../../utils/default-timer";
 import {TimerState} from "../../utils/timer-state";
 import {DefaultSettings} from "../../utils/default-settings";
 import {TimerService} from "../../services/timer.service";
+import {SettingsService} from "../../services/settings.service";
 
 @Component({
     selector: 'app-timer',
@@ -23,10 +24,14 @@ export class TimerComponent implements OnInit {
 
     constructor(
         private readonly timerService: TimerService,
+        private readonly settingsService: SettingsService
     ) {
     }
 
     ngOnInit(): void {
+        const timerSettings = this.settingsService.getTimerSettings();
+        this.time = timerSettings.pomodoro;
+
         this.timer$ = new Observable<number>(observer => {
             let count = this.time;
             const interval = setInterval(() => {

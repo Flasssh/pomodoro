@@ -1,1 +1,19 @@
-<p>timer-settings works!</p>
+<ng-container *ngIf="timer; else noTimer">
+    <div class="flex flex-row justify-between">
+        <div class="flex flex-col items-center">
+            <label class="font-medium text-lg">Pomodoro</label>
+            <span class="border-2 outline-0 text-lg font-medium w-12 text-center bg-gray-100 rounded-md shadow-sm select-none">{{timer.pomodoro | showMinutes}}</span>
+        </div>
+        <div class="flex flex-col items-center">
+            <label class="font-medium text-lg">Short Break</label>
+            <span class="border-2 outline-0 text-lg font-medium w-12 text-center bg-gray-100 rounded-md shadow-sm select-none">{{timer.shortBreak | showMinutes}}</span>
+        </div>
+        <div class="flex flex-col items-center">
+            <label class="font-medium text-lg">Long Break</label>
+            <span class="border-2 outline-0 text-lg font-medium w-12 text-center bg-gray-100 rounded-md shadow-sm select-none">{{timer.longBreak | showMinutes}}</span>
+        </div>
+    </div>
+</ng-container>
+<ng-template #noTimer>
+    Settings can't be loaded
+</ng-template>

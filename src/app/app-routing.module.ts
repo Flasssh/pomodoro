@@ -3,6 +3,9 @@ import {RouterModule, Routes} from '@angular/router';
 import {SettingsComponent} from "./pages/settings/settings.component";
 import {HomeComponent} from "./pages/home/home.component";
 import {TimerSettingsComponent} from "./pages/settings/components/timer-settings/timer-settings.component";
+import {
+    NotificationSettingsComponent
+} from "./pages/settings/components/notification-settings/notification-settings.component";
 
 const routes: Routes = [
     {
@@ -16,6 +19,15 @@ const routes: Routes = [
             {
                 path: 'timer',
                 component: TimerSettingsComponent
+            },
+            {
+                path: 'notification',
+                component: NotificationSettingsComponent
+            },
+            {
+                path: '',
+                redirectTo: 'timer',
+                pathMatch: 'full'
             }
         ]
     },

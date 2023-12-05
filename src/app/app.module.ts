@@ -7,6 +7,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {NgOptimizedImage} from "@angular/common";
 import {NgIconsModule} from "@ng-icons/core";
 import {
+    heroBell,
     heroChartBar,
     heroChevronDown,
     heroChevronUp, heroClock,
@@ -26,6 +27,8 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TimerSettingsComponent } from './pages/settings/components/timer-settings/timer-settings.component';
 import {SettingsService} from "./services/settings.service";
+import { ShowMinutesPipe } from './pipe/show-minutes.pipe';
+import { NotificationSettingsComponent } from './pages/settings/components/notification-settings/notification-settings.component';
 
 @NgModule({
     declarations: [
@@ -39,13 +42,15 @@ import {SettingsService} from "./services/settings.service";
         ShowTimePipe,
         SettingsComponent,
         HomeComponent,
-        TimerSettingsComponent
+        TimerSettingsComponent,
+        ShowMinutesPipe,
+        NotificationSettingsComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         NgOptimizedImage,
-        NgIconsModule.withIcons({heroCog, heroChartBar, heroXMark, heroChevronUp, heroChevronDown, heroPencil, heroFunnel, heroClock}),
+        NgIconsModule.withIcons({heroCog, heroChartBar, heroXMark, heroChevronUp, heroChevronDown, heroPencil, heroFunnel, heroClock, heroBell}),
         FormsModule,
         ReactiveFormsModule,
     ],

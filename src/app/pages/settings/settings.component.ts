@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {SettingsService} from "../../services/settings.service";
 
 @Component({
     selector: 'app-settings',
@@ -8,16 +7,19 @@ import {SettingsService} from "../../services/settings.service";
 })
 export class SettingsComponent {
 
-    constructor(
-        private readonly settingsService: SettingsService
-    ) {
+    constructor() {
     }
 
-    settings = [
+    settingsUrl = [
         {
             name: 'Timer',
             icon: 'heroClock',
             url: 'timer',
-        }
+        },
+        {
+            name: 'Notification',
+            icon: 'heroBell',
+            url: 'notification',
+        },
     ]
 }
