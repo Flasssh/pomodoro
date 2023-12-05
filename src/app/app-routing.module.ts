@@ -6,6 +6,7 @@ import {TimerSettingsComponent} from "./pages/settings/components/timer-settings
 import {
     NotificationSettingsComponent
 } from "./pages/settings/components/notification-settings/notification-settings.component";
+import {ControlSettingsComponent} from "./pages/settings/components/control-settings/control-settings.component";
 
 const routes: Routes = [
     {
@@ -23,6 +24,10 @@ const routes: Routes = [
             {
                 path: 'notification',
                 component: NotificationSettingsComponent
+            },
+            {
+                path: 'control',
+                component: ControlSettingsComponent
             },
             {
                 path: '',

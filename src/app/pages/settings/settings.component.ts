@@ -21,5 +21,10 @@ export class SettingsComponent {
             icon: 'heroBell',
             url: 'notification',
         },
+        {
+            name: 'Control',
+            icon: 'heroCog6Tooth',
+            url: 'control',
+        },
     ]
 }
