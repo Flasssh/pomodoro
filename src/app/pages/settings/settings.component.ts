@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {SettingsService} from "../../services/settings.service";
 
 @Component({
     selector: 'app-settings',
@@ -6,6 +7,11 @@ import {Component} from '@angular/core';
     styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent {
+
+    constructor(
+        private readonly settingsService: SettingsService
+    ) {
+    }
 
     settings = [
         {

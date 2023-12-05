@@ -25,6 +25,7 @@ import {TasksService} from "./services/tasks.service";
 import { SettingsComponent } from './pages/settings/settings.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TimerSettingsComponent } from './pages/settings/components/timer-settings/timer-settings.component';
+import {SettingsService} from "./services/settings.service";
 
 @NgModule({
     declarations: [
@@ -53,6 +54,12 @@ import { TimerSettingsComponent } from './pages/settings/components/timer-settin
             provide: APP_INITIALIZER,
             useFactory: (taskService: TasksService) => () => taskService.findTaskInLocalStorage(),
             deps: [TasksService],
+            multi: true
+        },
+        {
+            provide: APP_INITIALIZER,
+            useFactory: (settingsService: SettingsService) => () => settingsService.onInit(),
+            deps: [SettingsService],
             multi: true
         }
     ],
