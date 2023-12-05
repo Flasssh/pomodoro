@@ -9,7 +9,7 @@ import {NgIconsModule} from "@ng-icons/core";
 import {
     heroChartBar,
     heroChevronDown,
-    heroChevronUp,
+    heroChevronUp, heroClock,
     heroCog, heroFunnel,
     heroPencil,
     heroXMark
@@ -22,6 +22,9 @@ import {TaskModalComponent} from './components/tasks/components/task-modal/task-
 import {FooterComponent} from './components/footer/footer.component';
 import {ShowTimePipe} from './pipe/show-time.pipe';
 import {TasksService} from "./services/tasks.service";
+import { SettingsComponent } from './pages/settings/settings.component';
+import { HomeComponent } from './pages/home/home.component';
+import { TimerSettingsComponent } from './pages/settings/components/timer-settings/timer-settings.component';
 
 @NgModule({
     declarations: [
@@ -32,13 +35,16 @@ import {TasksService} from "./services/tasks.service";
         CreateTaskComponent,
         TaskModalComponent,
         FooterComponent,
-        ShowTimePipe
+        ShowTimePipe,
+        SettingsComponent,
+        HomeComponent,
+        TimerSettingsComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         NgOptimizedImage,
-        NgIconsModule.withIcons({heroCog, heroChartBar, heroXMark, heroChevronUp, heroChevronDown, heroPencil, heroFunnel}),
+        NgIconsModule.withIcons({heroCog, heroChartBar, heroXMark, heroChevronUp, heroChevronDown, heroPencil, heroFunnel, heroClock}),
         FormsModule,
         ReactiveFormsModule,
     ],
