@@ -1,14 +1,14 @@
-<div class="w-full">
+<div class="w-full dark:text-white">
     <form [formGroup]="taskForm" class="p-4 flex gap-6 flex-col">
 
         <div class="w-full">
-            <input class="border-none outline-0 h-12 font-medium w-full text-xl"
+            <input class="border-none outline-0 h-12 font-medium w-full text-xl dark:bg-neutral-800"
                    placeholder="Title"
                    type="text" id="title" name="title" formControlName="title">
         </div>
 
         <div class="w-full">
-            <input class="border-none outline-0 h-10 font-medium w-full text-LG"
+            <input class="border-none outline-0 h-10 font-medium w-full dark:bg-neutral-800"
                    placeholder="Notes"
                    type="text" id="notes" name="notes" formControlName="notes">
         </div>
@@ -16,26 +16,26 @@
         <div class="w-full">
             <label class="font-medium text-lg">Est Pomodoros</label>
             <div class="flex mt-4 gap-2">
-                <input class="border-2 outline-0 text-lg font-medium w-12 text-center bg-gray-100 rounded-md shadow-sm"
+                <input class="border-2 outline-0 text-lg font-medium w-12 text-center bg-gray-100 dark:bg-neutral-900 rounded-md shadow-sm"
                        min="0" step="1"
                        type="number" id="iteration" name="iteration" formControlName="iteration">
                 <button (click)="addIteration()"
-                        class="px-2 text-lg font-medium flex items-center text-center hover:shadow-sm hover:bg-gray-50 transition duration-200 ease-in-out">
+                        class="px-2 text-lg font-medium flex items-center text-center hover:shadow-sm hover:bg-gray-50 dark:hover:bg-neutral-800 dark:active:bg-neutral-900 transition duration-200 ease-in-out">
                     <ng-icon name="heroChevronUp"></ng-icon>
                 </button>
                 <button (click)="removeIteration()"
-                        class="px-2 text-lg font-medium flex items-center text-center hover:shadow-sm hover:bg-gray-50 transition duration-200 ease-in-out">
+                        class="px-2 text-lg font-medium flex items-center text-center hover:shadow-sm hover:bg-gray-50 dark:hover:bg-neutral-800 dark:active:bg-neutral-900 transition duration-200 ease-in-out">
                     <ng-icon name="heroChevronDown"></ng-icon>
                 </button>
             </div>
         </div>
     </form>
-    <div class="w-full bg-gray-200 p-4 flex flex-row justify-end">
+    <div class="w-full bg-gray-200 dark:bg-neutral-900 p-4 flex flex-row justify-end">
         <button class="px-4 py-2 rounded-md hover:underline transition duration-200 ease-in-out"
                 (click)="cancel()">
             Cancel
         </button>
-        <button class="px-4 py-2 bg-gray-800 text-white rounded-md shadow-sm hover:shadow-md hover:bg-gray-900 transition duration-200 ease-in-out disabled:opacity-50"
+        <button class="px-4 py-2 bg-gray-800 dark:bg-neutral-800 text-white rounded-md shadow-sm hover:shadow-md hover:bg-gray-700 dark:hover:bg-neutral-700 transition duration-200 ease-in-out disabled:opacity-50"
                 [disabled]="!taskForm.valid"
                 (click)="onSubmit()">
             Create

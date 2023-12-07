@@ -11,8 +11,8 @@ import {
     heroChartBar,
     heroChevronDown,
     heroChevronUp, heroClock,
-    heroCog, heroCog6Tooth, heroFunnel,
-    heroPencil,
+    heroCog, heroCog6Tooth, heroFunnel, heroMoon,
+    heroPencil, heroSun,
     heroXMark
 } from "@ng-icons/heroicons/outline";
 import {TimerComponent} from './components/timer/timer.component';
@@ -30,6 +30,7 @@ import {SettingsService} from "./services/settings.service";
 import { ShowMinutesPipe } from './pipe/show-minutes.pipe';
 import { NotificationSettingsComponent } from './pages/settings/components/notification-settings/notification-settings.component';
 import { ControlSettingsComponent } from './pages/settings/components/control-settings/control-settings.component';
+import {DarkmodeService} from "./services/darkmode.service";
 
 @NgModule({
     declarations: [
@@ -52,7 +53,7 @@ import { ControlSettingsComponent } from './pages/settings/components/control-se
         BrowserModule,
         AppRoutingModule,
         NgOptimizedImage,
-        NgIconsModule.withIcons({heroCog6Tooth, heroChartBar, heroXMark, heroChevronUp, heroChevronDown, heroPencil, heroFunnel, heroClock, heroBell}),
+        NgIconsModule.withIcons({heroCog6Tooth, heroChartBar, heroXMark, heroChevronUp, heroChevronDown, heroPencil, heroFunnel, heroClock, heroBell, heroMoon, heroSun}),
         FormsModule,
         ReactiveFormsModule,
     ],
@@ -67,6 +68,12 @@ import { ControlSettingsComponent } from './pages/settings/components/control-se
             provide: APP_INITIALIZER,
             useFactory: (settingsService: SettingsService) => () => settingsService.onInit(),
             deps: [SettingsService],
+            multi: true
+        },
+        {
+            provide: APP_INITIALIZER,
+            useFactory: (darkmodeService: DarkmodeService) => () => darkmodeService.loadDarkMode(),
+            deps: [DarkmodeService],
             multi: true
         }
     ],

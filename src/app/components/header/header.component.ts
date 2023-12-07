@@ -1,11 +1,29 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DarkmodeService} from "../../services/darkmode.service";
+import {Observable, tap} from "rxjs";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
-  mobileMenu = false;
+    mobileMenu = false;
+
+    darkMode$!: Observable<boolean>;
+
+    constructor(
+        private readonly darkmodeService: DarkmodeService,
+    ) {
+
+    }
+
+    ngOnInit(): void {
+        this.darkMode$ = this.darkmodeService.followDarkModeState$();
+    }
+
+    toggleDarkMode() {
+        this.darkmodeService.toggleDarkMode();
+    }
 }
