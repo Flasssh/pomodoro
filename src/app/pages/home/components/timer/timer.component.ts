@@ -22,6 +22,9 @@ export class TimerComponent implements OnInit {
 
     countInterval = 1;
 
+    hasLastTimeSaved = false;
+    lastTimeSaved = 0;
+
     constructor(
         private readonly timerService: TimerService,
         private readonly settingsService: SettingsService
@@ -30,7 +33,14 @@ export class TimerComponent implements OnInit {
 
     ngOnInit(): void {
         const timerSettings = this.settingsService.getTimerSettings();
-        this.time = this.timerService.loadCurrentTime(this.timerState) ?? timerSettings.pomodoro;
+        this.time = timerSettings.pomodoro;
+
+        const savedTime = this.timerService.loadCurrentTime(this.timerState)
+        if (savedTime) {
+            this.lastTimeSaved = savedTime;
+            this.hasLastTimeSaved = true;
+        }
+
 
         this.timer$ = new Observable<number>(observer => {
             let count = this.time;
@@ -135,5 +145,15 @@ export class TimerComponent implements OnInit {
         }
 
         this.timerService.saveCurrentTime(this.time, timerState);
+    }
+
+    resumeLastTime() {
+        this.hasLastTimeSaved = false;
+        this.time = this.lastTimeSaved;
+    }
+
+    deleteLastTime() {
+        this.hasLastTimeSaved = false;
+        this.timerService.removeCurrentTime(this.timerState);
     }
 }

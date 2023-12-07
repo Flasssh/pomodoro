@@ -54,4 +54,11 @@ export class TimerService {
         times[timerState] = time;
         localStorage.setItem('times', JSON.stringify(times));
     }
+
+    removeCurrentTime(timerState: TimerState) {
+        const times = this.loadAllTimes();
+
+        delete times[timerState];
+        localStorage.setItem('times', JSON.stringify(times));
+    }
 }

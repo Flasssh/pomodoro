@@ -26,13 +26,24 @@
             </button>
         </div>
     </div>
-    <div class="mt-8 font-medium text-8xl text-center tabular-nums dark:text-white">
+    <div class="mt-8 text-center tabular-nums dark:text-white">
         <div class="float-right text-sm w-4 h-4 text-center -mt-4">
             <button class="flex items-center cursor-pointer" (click)="resetCurrentTimer(timerState)">
                 <ng-icon name="heroArrowPath"></ng-icon>
             </button>
         </div>
-        {{time | showTime }}
+        <span class="text-8xl font-medium">{{time | showTime }}</span>
+        <div *ngIf="hasLastTimeSaved" class="mt-5 text-sm p-3 rounded bg-neutral-900 w-72 mx-auto">
+            The last time saved before you leave the page was {{lastTimeSaved | showTime}} <br/>
+            <div class="flex flex-row gap-1 text-center mt-1 justify-center">
+                <button class="underline cursor-pointer" (click)="resumeLastTime()">
+                    Want to continue?
+                </button>
+                <button class="underline cursor-pointer" (click)="deleteLastTime()">
+                    or delete it?
+                </button>
+            </div>
+        </div>
     </div>
     <div class="mt-8 flex justify-center">
         <ng-container *ngIf="!timerStarted; else stopTime">
