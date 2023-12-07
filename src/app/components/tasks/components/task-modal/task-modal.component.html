@@ -1,0 +1,108 @@
+<ng-container *ngIf="task">
+    <div class="absolute bg-gray-700 dark:bg-neutral-800 opacity-70 w-full h-full top-0 left-0" (click)="closeModalEvent()"></div>
+
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:border-2 dark:border-neutral-900 bg-white dark:bg-neutral-900 dark:text-white w-full max-w-screen-sm md:max-w-2xl flex justify-between flex-col rounded">
+        <ng-container *ngIf="editMode; else noEdit">
+            <div class="flex flex-row justify-between rounded-t dark:bg-neutral-800 bg-gray-50 w-full p-4">
+                <div class="font-medium flex gap-2 flex-row">
+                    <span class="text-md">Edit task</span>
+                    <span class="text-gray-600 opacity-50 text-sm flex items-center">
+                            #{{ task.id }}
+                        </span>
+                </div>
+                <div class="flex items-center text-xl cursor-pointer" (click)="closeModalEvent()">
+                    <ng-icon name="heroXMark"></ng-icon>
+                </div>
+            </div>
+            <div class="px-4">
+                <form [formGroup]="taskForm" class="flex gap-6 flex-col mt-2">
+
+                    <div class="w-full">
+                        <input class="border-none outline-0 h-12 font-medium w-full text-xl dark:bg-neutral-900"
+                               placeholder="Title"
+                               type="text" id="title" name="title" formControlName="title">
+                    </div>
+
+                    <div class="w-full">
+                        <input class="border-none outline-0 h-10 font-medium w-full dark:bg-neutral-900"
+                               placeholder="Notes"
+                               type="text" id="notes" name="notes" formControlName="notes">
+                    </div>
+
+                    <div class="w-full">
+                        <label class="font-medium text-lg">Est Pomodoros</label>
+                        <div class="flex mt-4 gap-2">
+                            <input class="border-2 outline-0 text-lg font-medium w-12 text-center bg-gray-50 dark:bg-neutral-900 rounded-md shadow-sm"
+                                   min="0" step="1"
+                                   type="number" id="iteration" name="iteration" formControlName="iteration">
+                            <button (click)="addIteration()"
+                                    class="px-2 text-lg font-medium flex items-center text-center hover:shadow-sm hover:bg-gray-50 dark:hover:bg-neutral-900 transition duration-200 ease-in-out">
+                                <ng-icon name="heroChevronUp"></ng-icon>
+                            </button>
+                            <button (click)="removeIteration()"
+                                    class="px-2 text-lg font-medium flex items-center text-center hover:shadow-sm hover:bg-gray-50 dark:hover:bg-neutral-900 transition duration-200 ease-in-out">
+                                <ng-icon name="heroChevronDown"></ng-icon>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </ng-container>
+        <ng-template #noEdit>
+                <div class="flex flex-row justify-between rounded-t dark:bg-neutral-800 dark:text-white bg-gray-50 p-4">
+                    <div class="font-medium flex gap-2 flex-row">
+                        <span class="text-md">Tasks</span>
+                        <span class="text-gray-600 dark:text-white opacity-50 text-sm flex items-center">
+                            {{ task.done}}/{{ task.iteration }}
+                        </span>
+                    </div>
+                    <div class="flex items-center text-xl cursor-pointer" (click)="closeModalEvent()">
+                        <ng-icon name="heroXMark"></ng-icon>
+                    </div>
+                </div>
+                <div class="my-4 px-4 flex gap-4 flex-col dark:bg-neutral-900">
+                    <div class="font-medium">
+                        <span class="text-xl">{{ task.title }}</span>
+                        -
+                        <span class="text-md text-black dark:text-white opacity-75">{{ task.completed ? 'Completed' : 'Not Completed' }}</span>
+                    </div>
+                    <div>
+                        {{ task.notes }}
+                    </div>
+                </div>
+        </ng-template>
+        <div class="w-full bg-gray-100 dark:bg-neutral-800 dark:text-white p-4 mt-4 flex flex-row justify-end text-md gap-2 rounded-b">
+            <ng-container *ngIf="!editMode; else cancelUpdate">
+                <button (click)="editMode = true"
+                        class="py-1 px-3 rounded-md hover:underline transition duration-200 ease-in-out flex items-center gap-2 flex-row">
+                    <ng-icon name="heroPencil"></ng-icon>
+                    Edit
+                </button>
+                <ng-container *ngIf="!task.completed; else completed">
+                    <button (click)="completeTaskEvent()"
+                            class="px-3 py-1 bg-gray-800 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-white rounded-md shadow-sm hover:shadow-md hover:bg-gray-900 transition duration-200 ease-in-out disabled:opacity-50">
+                        Complete
+                    </button>
+                </ng-container>
+                <ng-template #completed>
+                    <button (click)="resetCompletedTask()"
+                            class="px-3 py-1 bg-gray-800 text-white rounded-md shadow-sm hover:shadow-md hover:bg-gray-900 transition duration-200 ease-in-out disabled:opacity-50">
+                        Reset
+                    </button>
+                </ng-template>
+            </ng-container>
+            <ng-template #cancelUpdate>
+                <button (click)="editMode = false"
+                        class="py-1 px-3 rounded-md hover:underline transition duration-200 ease-in-out flex items-center gap-2 flex-row">
+                    <ng-icon name="heroPencil"></ng-icon>
+                    Cancel
+                </button>
+                <button (click)="updateTaskEvent()"
+                        class="px-3 py-1 bg-gray-800 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-white rounded-md shadow-sm hover:shadow-md hover:bg-gray-900 transition duration-200 ease-in-out disabled:opacity-50">
+                    Update
+                </button>
+            </ng-template>
+
+        </div>
+    </div>
+</ng-container>

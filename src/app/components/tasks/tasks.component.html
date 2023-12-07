@@ -1,0 +1,58 @@
+<div class="rounded p-4 max-w-2xl mx-auto mt-8">
+    <div class="font-medium w-full border-b-2 border-gray-100 flex flex-row justify-between dark:text-white">
+        <div class="text-lg">
+            Tasks
+        </div>
+        <div class="text-md items-center flex cursor-pointer" (click)="filterCompletedTask()">
+            <ng-icon name="heroFunnel"></ng-icon>
+        </div>
+    </div>
+    <div class="gap-2 flex flex-col mt-4">
+        <ng-container *ngIf="(tasks$ | async) as tasks">
+            <ng-container *ngIf="tasks.length > 0; else noTasks">
+                <div *ngFor="let task of tasks"
+                     (click)="openTask(task.id)"
+                     class="py-2 rounded-md bg-gray-50 dark:bg-neutral-900 dark:text-white flex justify-between cursor-pointer">
+                    <div class="flex justify-between w-full select-none">
+                        <span class="pl-2 font-medium text-md"> {{task.title}} </span>
+                        <span class="pr-2 font-medium text-md"> {{task.done}}/{{task.iteration}} </span>
+                    </div>
+                    <div (click)="deleteTask(task.id)"
+                         class="px-2 text-md border-l-2 border-gray-100 font-medium text-md cursor-pointer flex items-center">
+                        <ng-icon name="heroXMark"></ng-icon>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #noTasks>
+                <div class="py-2 rounded-md font-medium text-md text-center dark:text-white">
+                    No tasks yet
+                </div>
+            </ng-template>
+        </ng-container>
+    </div>
+
+    <hr class="my-6 border-2 border-gray-100"/>
+
+    <div
+            class="mt-2 border-2 border-gray-100 border-dashed rounded-md"
+            [ngClass]="{'py-4': !creatingTask}">
+        <ng-container *ngIf="creatingTask; else notCreatingTask">
+            <app-create-task
+                    (cancelTask)="cancelCreatingTask()"
+                    (saveTask)="createTask($event)"></app-create-task>
+        </ng-container>
+        <ng-template #notCreatingTask>
+            <div (click)="startCreatingTask()" class="text-center font-medium text-lg cursor-pointer select-none dark:text-white">
+                Create a new task
+            </div>
+        </ng-template>
+    </div>
+</div>
+
+<ng-container *ngIf="(currentTaskOpen$ | async) as currentTask">
+    <app-task-modal
+            [task]="currentTask"
+            (closeModal)="closeModal()"
+            (completeTask)="completeTask($event)"
+            (resetIterationTask)="resetIterationTask($event)"></app-task-modal>
+</ng-container>

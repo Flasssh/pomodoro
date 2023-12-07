@@ -1,0 +1,14 @@
+ <div>
+    <div>
+        <a
+                *ngFor="let item of settingsUrl"
+                [routerLink]="item.url"
+        >
+            <ng-icon [name]="item.icon"></ng-icon>
+            {{item.name}}
+        </a>
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>
