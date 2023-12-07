@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {TasksService} from "./tasks.service";
+import {TimerState} from "../../utils/timer-state";
 
 @Injectable({
     providedIn: 'root'
@@ -36,5 +37,21 @@ export class TimerService {
 
             this.tasksService.updateTask$(task);
         }
+    }
+
+    loadAllTimes() {
+        return JSON.parse(localStorage.getItem('times') || '{}');
+    }
+
+    loadCurrentTime(timerState: TimerState) {
+        const times = this.loadAllTimes();
+        return times[timerState] || null;
+    }
+
+    saveCurrentTime(time: number, timerState: TimerState) {
+        const times = this.loadAllTimes();
+
+        times[timerState] = time;
+        localStorage.setItem('times', JSON.stringify(times));
     }
 }

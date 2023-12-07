@@ -4,18 +4,23 @@
 > This app is a work in progress.
 
 # About this project
-Welcome to our open-source Pomodoro app! This project is licensed under the MIT License and is developed using Angular 16.2.2 with an ESLint configuration.
+
+Welcome to our open-source Pomodoro app! This project is licensed under the MIT License and is developed using Angular
+16.2.2 with an ESLint configuration.
 
 # Features
+
 Our Pomodoro app comes with a variety of features to help users manage their time effectively, including:
 
 *Nothing for the moment*
 
 # Roadmap
 
-We're continuously improving our Pomodoro app to provide you with the best time management experience. Here's what we're working on:
+We're continuously improving our Pomodoro app to provide you with the best time management experience. Here's what we're
+working on:
 
 Priority | Feature
+
 - **Pomodoro Timer:** Set work intervals and breaks to enhance productivity.
 - **Customizable Settings:** Personalize timer duration, notification sounds, and more.
 - **Task Management:** Organize tasks and track progress within the app.
@@ -23,19 +28,22 @@ Priority | Feature
 - **Data Visualization:** Analyze productivity patterns with insightful charts and graphs.
 
 Non-priority | Feature
+
 - **Integration with Task Management Tools:** Sync tasks with popular apps like Trello, Asana, and Todoist.
 - **Collaboration Features:** Share timers and tasks with team members for enhanced teamwork.
 - **Mobile Apps:** Access the Pomodoro app on your iOS and Android devices.
 - **Advanced Analytics:** Dive deeper into productivity data with advanced reporting tools.
 - **Integration with Calendar Apps:** Plan Pomodoro sessions around your schedule seamlessly.
 
-
 # Known issues
 
+- No logo :(
+
 # Running locally
+
 To run the Pomodoro app locally on your machine, follow these steps:
 
-1. Clone the repository: git clone `https://github.com/Flasssh/pomodoro.git`
+1. Clone the repository: git clone `https://github.com/RomainAntunes/pomodoro.git`
 2. Navigate to the project directory: cd pomodoro
 3. Install dependencies: npm install
 4. Start the development server: ng serve
@@ -43,11 +51,15 @@ To run the Pomodoro app locally on your machine, follow these steps:
 
 # Contributing
 
-Feel free to contribute to our Pomodoro app and make time management a breeze for users worldwide! If you have any questions or suggestions, please open an issue or reach out to us. Happy Pomodoro-ing! 🍅🕒
-
+Feel free to contribute to our Pomodoro app and make time management a breeze for users worldwide! If you have any
+questions or suggestions, please open an issue or reach out to us. Happy Pomodoro-ing! 🍅🕒
 
 ## Using Semantic Commit Messages for Contributions
-We encourage contributors to follow the [semantic commit message convention](https://www.conventionalcommits.org/en/v1.0.0/) when making changes to the project. Semantic commits help maintain a clear and organized commit history, making it easier to track changes and understand their impact.
+
+We encourage contributors to follow
+the [semantic commit message convention](https://www.conventionalcommits.org/en/v1.0.0/) when making changes to the
+project. Semantic commits help maintain a clear and organized commit history, making it easier to track changes and
+understand their impact.
 
 When contributing to this project, please adhere to the following guidelines for commit messages:
 
@@ -65,7 +77,8 @@ Example commit messages:
 - `fix`: resolve issue with timer not resetting
 - `docs`: update README with installation instructions
 
-Using semantic commit messages ensures that our project's version history is meaningful and understandable. Thank you for your contributions and helping us maintain a clean commit history!
+Using semantic commit messages ensures that our project's version history is meaningful and understandable. Thank you
+for your contributions and helping us maintain a clean commit history!
 
 # License
 

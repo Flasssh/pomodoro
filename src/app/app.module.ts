@@ -7,6 +7,7 @@ import {HeaderComponent} from './shared/components/header/header.component';
 import {NgOptimizedImage} from "@angular/common";
 import {NgIconsModule} from "@ng-icons/core";
 import {
+    heroArrowPath,
     heroBell,
     heroChartBar,
     heroChevronDown,
@@ -72,7 +73,8 @@ import {TaskModalComponent} from "./pages/home/components/tasks/components/task-
             heroClock,
             heroBell,
             heroMoon,
-            heroSun
+            heroSun,
+            heroArrowPath
         }),
         FormsModule,
         ReactiveFormsModule,

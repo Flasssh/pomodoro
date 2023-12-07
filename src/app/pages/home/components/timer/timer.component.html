@@ -27,6 +27,11 @@
         </div>
     </div>
     <div class="mt-8 font-medium text-8xl text-center tabular-nums dark:text-white">
+        <div class="float-right text-sm w-4 h-4 text-center -mt-4">
+            <button class="flex items-center cursor-pointer" (click)="resetCurrentTimer(timerState)">
+                <ng-icon name="heroArrowPath"></ng-icon>
+            </button>
+        </div>
         {{time | showTime }}
     </div>
     <div class="mt-8 flex justify-center">
