@@ -19,7 +19,8 @@ export class SettingsComponent {
             name: 'Notification',
             icon: 'heroBell',
             url: 'notification',
-            disabled: false,
+            disabled: true,
+            soon: true,
         },
         {
             name: 'Controls',
