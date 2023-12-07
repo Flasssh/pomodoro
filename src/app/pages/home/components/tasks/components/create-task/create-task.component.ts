@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
-import {Task} from "../../models/Task";
+import {Task} from "../../../../../../shared/models/task";
 
 @Component({
     selector: 'app-create-task',
