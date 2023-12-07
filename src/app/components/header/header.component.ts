@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DarkmodeService} from "../../services/darkmode.service";
-import {Observable, tap} from "rxjs";
+import {Observable} from "rxjs";
 
 @Component({
     selector: 'app-header',

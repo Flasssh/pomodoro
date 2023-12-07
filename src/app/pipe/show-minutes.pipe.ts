@@ -1,13 +1,13 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
-  name: 'showMinutes'
+    name: 'showMinutes'
 })
 export class ShowMinutesPipe implements PipeTransform {
 
-  transform(value: number, ...args: unknown[]): unknown {
-    const minutes = Math.floor(value / 60);
-    return `${minutes}`;
-  }
+    transform(value: number): unknown {
+        const minutes = Math.floor(value / 60);
+        return `${minutes}`;
+    }
 
 }

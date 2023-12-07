@@ -1,4 +1,4 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Task} from "../components/tasks/models/Task";
 import {Observable, of} from "rxjs";
 

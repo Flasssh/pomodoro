@@ -7,9 +7,6 @@ import {Component} from '@angular/core';
 })
 export class SettingsComponent {
 
-    constructor() {
-    }
-
     settingsUrl = [
         {
             name: 'Timer',

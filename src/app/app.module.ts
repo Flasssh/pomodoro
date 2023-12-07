@@ -10,9 +10,13 @@ import {
     heroBell,
     heroChartBar,
     heroChevronDown,
-    heroChevronUp, heroClock,
-    heroCog, heroCog6Tooth, heroFunnel, heroMoon,
-    heroPencil, heroSun,
+    heroChevronUp,
+    heroClock,
+    heroCog6Tooth,
+    heroFunnel,
+    heroMoon,
+    heroPencil,
+    heroSun,
     heroXMark
 } from "@ng-icons/heroicons/outline";
 import {TimerComponent} from './components/timer/timer.component';
@@ -23,13 +27,15 @@ import {TaskModalComponent} from './components/tasks/components/task-modal/task-
 import {FooterComponent} from './components/footer/footer.component';
 import {ShowTimePipe} from './pipe/show-time.pipe';
 import {TasksService} from "./services/tasks.service";
-import { SettingsComponent } from './pages/settings/settings.component';
-import { HomeComponent } from './pages/home/home.component';
-import { TimerSettingsComponent } from './pages/settings/components/timer-settings/timer-settings.component';
+import {SettingsComponent} from './pages/settings/settings.component';
+import {HomeComponent} from './pages/home/home.component';
+import {TimerSettingsComponent} from './pages/settings/components/timer-settings/timer-settings.component';
 import {SettingsService} from "./services/settings.service";
-import { ShowMinutesPipe } from './pipe/show-minutes.pipe';
-import { NotificationSettingsComponent } from './pages/settings/components/notification-settings/notification-settings.component';
-import { ControlSettingsComponent } from './pages/settings/components/control-settings/control-settings.component';
+import {ShowMinutesPipe} from './pipe/show-minutes.pipe';
+import {
+    NotificationSettingsComponent
+} from './pages/settings/components/notification-settings/notification-settings.component';
+import {ControlSettingsComponent} from './pages/settings/components/control-settings/control-settings.component';
 import {DarkmodeService} from "./services/darkmode.service";
 
 @NgModule({

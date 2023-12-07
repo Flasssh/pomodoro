@@ -19,9 +19,6 @@ export class SettingsService {
         }
     };
 
-    constructor() {
-    }
-
     getSettings(): Settings {
         return this.settings;
     }
