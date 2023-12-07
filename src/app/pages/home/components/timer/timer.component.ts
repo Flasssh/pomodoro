@@ -30,13 +30,14 @@ export class TimerComponent implements OnInit {
 
     ngOnInit(): void {
         const timerSettings = this.settingsService.getTimerSettings();
-        this.time = timerSettings.pomodoro;
+        this.time = this.timerService.loadCurrentTime(this.timerState) ?? timerSettings.pomodoro;
 
         this.timer$ = new Observable<number>(observer => {
             let count = this.time;
             const interval = setInterval(() => {
                 if (count.valueOf() === 0) {
                     clearInterval(interval);
+
                     this.timerStarted = false;
 
                     switch (this.timerState) {
@@ -74,6 +75,7 @@ export class TimerComponent implements OnInit {
                     return;
                 }
 
+                this.timerService.saveCurrentTime(this.time, this.timerState);
                 observer.next(count--);
             }, 1000);
             return () => {
@@ -116,5 +118,22 @@ export class TimerComponent implements OnInit {
                 this.time = DefaultTimer.LONG_BREAK;
                 break;
         }
+    }
+
+    resetCurrentTimer(timerState: TimerState) {
+
+        switch (timerState) {
+            case TimerState.POMODORO:
+                this.time = DefaultTimer.POMODORO;
+                break;
+            case TimerState.SHORT_BREAK:
+                this.time = DefaultTimer.SHORT_BREAK;
+                break;
+            case TimerState.LONG_BREAK:
+                this.time = DefaultTimer.LONG_BREAK;
+                break;
+        }
+
+        this.timerService.saveCurrentTime(this.time, timerState);
     }
 }
