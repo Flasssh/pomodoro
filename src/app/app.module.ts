@@ -1,5 +1,5 @@
 import {APP_INITIALIZER, NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, Meta} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -102,4 +102,15 @@ import {TaskModalComponent} from "./pages/home/components/tasks/components/task-
     bootstrap: [AppComponent]
 })
 export class AppModule {
+
+    constructor(
+        private readonly meta: Meta,
+    ) {
+        this.meta.addTags([
+            {name: 'title', content: 'Pomodoro Timer'},
+            {name: 'description', content: 'Pomodoro Timer'},
+            {name: 'author', content: 'Romain Antunes'},
+            {name: 'keywords', content: 'Pomodoro, Timer, Focus, Productivity, Task, Management, Time, Management'},
+        ])
+    }
 }
