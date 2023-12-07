@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {SettingsService} from "../../../../services/settings.service";
-import {SettingsTimer} from "../../../../shared/models/Settings";
+import {SettingsService} from "../../../../shared/services/settings.service";
+import {SettingsTimer} from "../../../../shared/models/settings";
 
 @Component({
     selector: 'app-timer-settings',

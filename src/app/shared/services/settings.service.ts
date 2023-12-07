@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Settings, SettingsTimer} from "../shared/models/Settings";
-import {DefaultSettings} from "../utils/default-settings";
-import {DefaultTimer} from "../utils/default-timer";
+import {Settings, SettingsTimer} from "../models/settings";
+import {DefaultSettings} from "../../utils/default-settings";
+import {DefaultTimer} from "../../utils/default-timer";
 
 @Injectable({
     providedIn: 'root'

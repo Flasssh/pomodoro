@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {TasksService} from "../../services/tasks.service";
+import {TasksService} from "../../shared/services/tasks.service";
 import {map, Observable} from "rxjs";
 import {Task} from "./models/Task";
 

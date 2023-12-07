@@ -1,16 +1,21 @@
 <div class="mx-auto w-10/12 max-w-screen-md min-w-[300px] bg-gray-50 border-2 border-neutral-950 divide-gray-200 mt-12 rounded shadow-lg dark:bg-neutral-900 dark:text-white
              flex flex-col divide-y-2 dark:divide-neutral-600 md:flex-row md:divide-x-2 md:divide-y-0 h-64 min-h-[400px]">
-    <div class="flex flex-col divide-y-2 dark:divide-neutral-800 divide-gray-100 md:divide-y-0 md:w-1/3 max-w-md">
+    <div class="flex flex-col divide-y-2 dark:divide-neutral-800 divide-gray-100 md:w-1/3 max-w-md">
         <a
-                class="items-center flex flex-row gap-5 pl-4 px-2 py-4 font-medium hover:bg-gray-200 dark:hover:bg-neutral-700 dark:hover:text-white active:bg-gray-300"
-                *ngFor="let item of settingsUrl"
-                [routerLink]="item.url"
+                class="items-center select-none flex flex-row gap-5 pl-4 px-2 py-4 font-medium hover:bg-gray-200 dark:hover:bg-neutral-700 dark:hover:text-white active:bg-gray-300"
+                *ngFor="let item of settings"
+                [routerLink]="!item.disabled ? item.url : null"
         >
-            <ng-icon [name]="item.icon"></ng-icon>
-            {{item.name}}
+            <ng-icon [ngClass]="{'opacity-50': item.disabled}" [name]="item.icon"></ng-icon>
+            <span [ngClass]="{'opacity-50': item.disabled}">
+                {{item.name}}
+            </span>
+            <ng-container *ngIf="item.soon">
+                <app-badge text="soon"></app-badge>
+            </ng-container>
         </a>
     </div>
-    <div class="mt-2 md:mt-0 p-4 min-h-[200px] max-h-80 md:max-h-full md:w-2/3">
+    <div class="md:mt-0 p-4 min-h-[200px] max-h-80 md:max-h-full md:w-2/3">
         <router-outlet></router-outlet>
     </div>
 </div>
