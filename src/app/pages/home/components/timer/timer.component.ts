@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable, Subscription} from "rxjs";
-import {DefaultTimer} from "../../utils/default-timer";
-import {TimerState} from "../../utils/timer-state";
-import {DefaultSettings} from "../../utils/default-settings";
-import {TimerService} from "../../shared/services/timer.service";
-import {SettingsService} from "../../shared/services/settings.service";
+import {DefaultTimer} from "../../../../utils/default-timer";
+import {TimerState} from "../../../../utils/timer-state";
+import {DefaultSettings} from "../../../../utils/default-settings";
+import {TimerService} from "../../../../shared/services/timer.service";
+import {SettingsService} from "../../../../shared/services/settings.service";
 
 @Component({
     selector: 'app-timer',

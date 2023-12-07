@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Task} from "../../models/Task";
+import {Task} from "../../../../../../shared/models/task";
 import {FormBuilder, Validators} from "@angular/forms";
-import {TasksService} from "../../../../shared/services/tasks.service";
+import {TasksService} from "../../../../../../shared/services/tasks.service";
 
 @Component({
     selector: 'app-task-modal',

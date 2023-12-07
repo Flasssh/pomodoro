@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DarkmodeService} from "../../shared/services/darkmode.service";
+import {DarkmodeService} from "../../services/darkmode.service";
 import {Observable} from "rxjs";
 
 @Component({

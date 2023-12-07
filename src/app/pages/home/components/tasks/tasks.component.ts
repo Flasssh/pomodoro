@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {TasksService} from "../../shared/services/tasks.service";
 import {map, Observable} from "rxjs";
-import {Task} from "./models/Task";
+import {Task} from "../../../../shared/models/task";
+import {TasksService} from "../../../../shared/services/tasks.service";
 
 @Component({
     selector: 'app-tasks',
